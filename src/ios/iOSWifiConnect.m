@@ -5,6 +5,7 @@
 @implementation iOSWifiConnect
 
 - (void)connectNetwork:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult *pluginResult = nil;
 	NSString* ssid = [command argumentAtIndex:0];
 	NSString* password = [command argumentAtIndex:1];
 

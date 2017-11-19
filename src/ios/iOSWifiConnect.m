@@ -13,7 +13,7 @@
 			NEHotspotConfiguration *configuration = [[NEHotspotConfiguration
 				alloc] initWithSSID:(NSString *)ssid 
 					passphrase:(NSString *)password 
-						isWEP:(BOOL)true;
+						isWEP:(BOOL)true];
 
 			configuration.joinOnce = YES;
 			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:nil];

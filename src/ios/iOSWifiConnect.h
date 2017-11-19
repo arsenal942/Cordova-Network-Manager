@@ -6,8 +6,5 @@
 
 // The hooks for our plugin commands
 - (void)connectNetwork:(CDVInvokedUrlCommand *)command;
-- (void)isWifiEnabled:(CDVInvokedUrlCommand *)command;
-- (void)getConnectedSSID:(CDVInvokedUrlCommand*)command;
-- (void)getConnectedBSSID:(CDVInvokedUrlCommand*)command;
 
 @end

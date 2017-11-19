@@ -2,12 +2,7 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <NetworkExtension/NetworkExtension.h>  
 
-#import <Cordova/CDVAvailability.h>
-
 @implementation iOSWifiConnect
-
-- (void)pluginInitialize {
-}
 
 - (void)connectNetwork:(CDVInvokedUrlCommand*)command {
 	NSString* ssid = [command argumentAtIndex:0];

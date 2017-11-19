@@ -13,23 +13,21 @@
 	NSString* ssid = [command argumentAtIndex:0];
 	NSString* password = [command argumentAtIndex:1];
 
-    if (ssid && [ssid length]) {
-		NEHotspotConfiguration *configuration = [[NEHotspotConfiguration
-			alloc] initWithSSID:(NSString *)ssid 
-				passphrase:(NSString *)password 
-                    isWEP:(BOOL)true;
+	if (@available(iOS 11.0, *)) {
+	    if (ssid && [ssid length]) {
+			NEHotspotConfiguration *configuration = [[NEHotspotConfiguration
+				alloc] initWithSSID:(NSString *)ssid 
+					passphrase:(NSString *)password 
+						isWEP:(BOOL)true;
 
-		configuration.joinOnce = YES;
-
-		[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:nil];
-
-		if (NEHotspotConfigurationManager) {
+			configuration.joinOnce = YES;
+			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:nil];
 			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssid];
 		} else {
-			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not available"];
-		}	
+			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"SSID Not provided"];
+		}
 	} else {
-		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"SSID Not provided"];
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"iOS 11+ not available"];
 	}
 
     [self.commandDelegate sendPluginResult:pluginResult

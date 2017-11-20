@@ -30,4 +30,22 @@
                                 callbackId:command.callbackId];
 }
 
+- (BOOL) isWiFiEnabled {
+    // see http://www.enigmaticape.com/blog/determine-wifi-enabled-ios-one-weird-trick
+    NSCountedSet * cset = [NSCountedSet new];
+
+    struct ifaddrs *interfaces = NULL;
+    // retrieve the current interfaces - returns 0 on success
+    int success = getifaddrs(&interfaces);
+    if(success == 0){
+        for( struct ifaddrs *interface = interfaces; interface; interface = interface->ifa_next) {
+            if ( (interface->ifa_flags & IFF_UP) == IFF_UP ) {
+                [cset addObject:[NSString stringWithUTF8String:interface->ifa_name]];
+            }
+        }
+    }
+
+    return [cset countForObject:@"awdl0"] > 1 ? YES : NO;
+}
+
 @end

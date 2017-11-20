@@ -9,21 +9,20 @@
 
 	NSString * ssidString;
 	NSString * passwordString;
+	BOOL networkIsWepBool;
 	NSDictionary* options = [[NSDictionary alloc]init];
 
 	options = [command argumentAtIndex:0];
 	ssidString = [options objectForKey:@"Ssid"];
 	passwordString = [options objectForKey:@"Password"];
-
-	NSLog(@"ssidString is %@", ssidString);
-	NSLog(@"passwordString is %@", passwordString);
+	networkIsWepBool = [options objectForKey:@"IsWep"];
 
 	if (@available(iOS 11.0, *)) {
 	    if (ssidString && [ssidString length]) {
 			NEHotspotConfiguration *configuration = [[NEHotspotConfiguration
 				alloc] initWithSSID:ssidString 
 					passphrase:passwordString 
-						isWEP:(BOOL)false];
+						isWEP:networkIsWepBool];
 
 			configuration.joinOnce = YES;
 			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:nil];

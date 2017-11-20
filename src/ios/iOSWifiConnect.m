@@ -6,21 +6,27 @@
 
 - (void)connectNetwork:(CDVInvokedUrlCommand*)command {
     CDVPluginResult *pluginResult = nil;
-	NSString* ssid = [command argumentAtIndex:0];
-	NSString* password = [command argumentAtIndex:1];
-	NSLog(@"SSID is %@", ssid);
-	NSLog(@"Password is %@", password);
+
+	NSString * ssidString;
+	NSString * passwordString;
+	NSDictionary* options = [[NSDictionary alloc]init];
+
+	ssidString = [options objectForKey:@"Ssid"];
+	passwordString = [options objectForKey:@"Password"];
+
+	NSLog(@"ssidString is %@", ssidString);
+	NSLog(@"passwordString is %@", passwordString);
 
 	if (@available(iOS 11.0, *)) {
-	    if (ssid && [ssid length]) {
+	    if (ssidString && [ssidString length]) {
 			NEHotspotConfiguration *configuration = [[NEHotspotConfiguration
-				alloc] initWithSSID:(NSString *)ssid 
-					passphrase:(NSString *)password 
+				alloc] initWithSSID:ssidString 
+					passphrase:passwordString 
 						isWEP:(BOOL)false];
 
 			configuration.joinOnce = YES;
 			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:nil];
-			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssid];
+			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssidString];
 		} else {
 			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"SSID Not provided"];
 		}

@@ -11,6 +11,7 @@
 	NSString * passwordString;
 	NSDictionary* options = [[NSDictionary alloc]init];
 
+	options = [command argumentAtIndex:0];
 	ssidString = [options objectForKey:@"Ssid"];
 	passwordString = [options objectForKey:@"Password"];
 

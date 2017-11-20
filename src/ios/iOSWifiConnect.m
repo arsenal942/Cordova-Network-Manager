@@ -8,8 +8,8 @@
     CDVPluginResult *pluginResult = nil;
 	NSString* ssid = [command argumentAtIndex:0];
 	NSString* password = [command argumentAtIndex:1];
-	NSLog(@"%@", ssid);
-	NSLog(@"%@", password);
+	NSLog(@"Ssid for connect @", ssid);
+	NSLog(@"Password for connect@", password);
 
 	if (@available(iOS 11.0, *)) {
 	    if (ssid && [ssid length]) {

@@ -3,25 +3,28 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="ioswificonnect"
     version="1.0.0">
-    <name>iOS Wifi Connect</name>
+    <name>iOSWifiConnect</name>
     <description></description>
     <license>MIT</license>
     <keywords></keywords>
     <repo>https://github.com/arsenal942/iOSWifiConnect.git</repo>
     <issue>https://github.com/arsenal942/iOSWifiConnect/issues</issue>
-    <!-- ios -->
-    <platform name="ios">
-        <js-module src="www/plugin.js" name="plugin">
-            <runs/>
-            <clobbers target="ioswificonnect" />
-        </js-module>
+
+    <js-module src="www/iOSWifiConnect.js" name="iOSWifiConnect">
+      <runs/>
+      <clobbers target="window.iOSWifiConnect" />
+    </js-module>
+
+    <platform name="ios">      
         <config-file target="config.xml" parent="/*">
-            <feature name="ioswificonnect">
-                <param name="ios-package" value="ioswificonnect" onload="true" />
+            <feature name="iOSWifiConnect">
+                <param name="ios-package" value="iOSWifiConnect"/>
             </feature>
         </config-file>
 
         <header-file src="src/ios/iOSWifiConnect.h" />
         <source-file src="src/ios/iOSWifiConnect.m" />
+        <framework src="SystemConfiguration.framework" />
     </platform>
+  
 </plugin>

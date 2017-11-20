@@ -4,7 +4,6 @@
   "cordova": {
     "id": "cordova-plugin-ioswificonnect",
     "platforms": [
-      "android",
       "ios"
     ]
   },

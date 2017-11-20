@@ -6,6 +6,10 @@ var iOSWifiConnect = {
                 "Ssid": ssid,
                 "Password": ssidPassword
             }]);
+    },
+
+    isWifiEnabled: function (ssid, ssidPassword, win, fail) {
+        cordova.exec(win, fail, 'iOSWifiConnect', 'isWifiEnabled');
     }
 
 };

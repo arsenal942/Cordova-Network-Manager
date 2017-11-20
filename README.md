@@ -1,4 +1,6 @@
-Cordova iOS Wifi 
+iOS Wifi Connect - Cordova
 ======
 
-This is a simple starting point for building a Cordova plugin on iOS and Android.
+A simple plugin that uses NEHotspotConfigurationManager for iOS11+ to directly connect to networks for cordova.
+
+- iOS only

@@ -30,7 +30,7 @@
                                 callbackId:command.callbackId];
 }
 
-- (BOOL) isWiFiEnabled {
+- (bool) isWiFiEnabled {
     // see http://www.enigmaticape.com/blog/determine-wifi-enabled-ios-one-weird-trick
     NSCountedSet * cset = [NSCountedSet new];
 

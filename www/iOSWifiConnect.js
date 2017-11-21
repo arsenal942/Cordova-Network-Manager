@@ -8,9 +8,12 @@ var iOSWifiConnect = {
             }]);
     },
 
-    isWifiEnabled: function (ssid, ssidPassword, win, fail) {
-        cordova.exec(win, fail, 'iOSWifiConnect', 'isWifiEnabled');
-    }
+    disconnectNetwork: function (ssid, win, fail) {
+        cordova.exec(win, fail, 'iOSWifiConnect', 'disconnectNetwork', [
+            {
+                "Ssid": ssid
+            }]);
+    },
 
 };
 

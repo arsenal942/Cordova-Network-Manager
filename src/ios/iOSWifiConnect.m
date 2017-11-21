@@ -1,7 +1,7 @@
 #import "iOSWifiConnect.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <NetworkExtension/NetworkExtension.h>  
-#import <CoreFoundation/CoreFoundation.h>
+#import "Reachability.h"
 
 @implementation iOSWifiConnect
 

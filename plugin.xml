@@ -18,13 +18,13 @@
 
     <platform name="ios">      
         <config-file target="config.xml" parent="/*">
-            <feature name="iOSWifiConnect">
-                <param name="ios-package" value="iOSWifiConnect"/>
+            <feature name="cordovaNetworkManager">
+                <param name="ios-package" value="cordovaNetworkManager"/>
             </feature>
         </config-file>
 
-        <header-file src="src/ios/iOSWifiConnect.h" />
-        <source-file src="src/ios/iOSWifiConnect.m" />
+        <header-file src="src/ios/cordovaNetworkManager.h" />
+        <source-file src="src/ios/cordovaNetworkManager.m" />
         <framework src="SystemConfiguration.framework" />
     </platform>
 
@@ -43,7 +43,7 @@
         </feature>
       </config-file>
 
-      <source-file src="src/android/src/cordovaNetworkManager.java" target-dir="src/android/src" />
+      <source-file src="src/android/cordovaNetworkManager.java" target-dir="src/android" />
     </platform>
   
 </plugin>

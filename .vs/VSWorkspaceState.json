@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\android",
     "\\src\\ios",
     "\\www"
   ],
-  "SelectedNode": "\\www\\iOSWifiConnect.js",
+  "SelectedNode": "\\www\\cordovaNetworkManager.js",
   "PreviewInSolutionExplorer": false
 }

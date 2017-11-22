@@ -1,11 +1,18 @@
 {
-  "name": "cordova-plugin-ioswificonnect",
+  "name": "cordova-plugin-cordovanetworkmanager",
   "version": "1.0.0",
   "cordova": {
-    "id": "cordova-plugin-ioswificonnect",
+    "id": "cordova-plugin-cordovanetworkmanager",
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   },
-  "description": "iOS Wifi Plugin"
+  "author": "Nicholas Clancy",
+  "license": "Apache 2.0",
+  "description": "Cordova Network Manager for Android and iOS",
+  "bugs": {
+    "url": "https://github.com/arsenal942/Cordova-Network-Manager/issues"
+  },
+  "homepage": "https://github.com/arsenal942/Cordova-Network-Manager#readme"
 }

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    id="ioswificonnect"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordovaNetworkManager"
     version="1.0.0">
-    <name>iOSWifiConnect</name>
-    <description></description>
+    <name>cordovaNetworkManager</name>
+    <description>Cordova Network Manager for Android and iOS</description>
     <license>MIT</license>
-    <keywords></keywords>
-    <repo>https://github.com/arsenal942/iOSWifiConnect.git</repo>
-    <issue>https://github.com/arsenal942/iOSWifiConnect/issues</issue>
+    <keywords>cordova,network,wifi,phonegap</keywords>
+    <repo>https://github.com/arsenal942/cordovaNetworkManager.git</repo>
+    <issue>https://github.com/arsenal942/cordovaNetworkManager/issues</issue>
 
-    <js-module src="www/iOSWifiConnect.js" name="iOSWifiConnect">
+    <js-module src="www/cordovaNetworkManager.js" name="cordovaNetworkManager">
       <runs/>
-      <clobbers target="window.iOSWifiConnect" />
+      <clobbers target="window.cordovaNetworkManager" />
     </js-module>
 
     <platform name="ios">      
@@ -25,6 +26,24 @@
         <header-file src="src/ios/iOSWifiConnect.h" />
         <source-file src="src/ios/iOSWifiConnect.m" />
         <framework src="SystemConfiguration.framework" />
+    </platform>
+
+    <platform name="android">
+
+      <config-file target="AndroidManifest.xml" parent="/manifest">
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+      </config-file>
+
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="cordovaNetworkManager">
+          <param name="android-package" value="cordova-plugin-cordovanetworkmanager" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+
+      <source-file src="src/android/src/cordovaNetworkManager.java" target-dir="src/android/src" />
     </platform>
   
 </plugin>

@@ -1,8 +1,8 @@
-#import "iOSWifiConnect.h"
+#import "cordovaNetworkManager.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <NetworkExtension/NetworkExtension.h>  
 
-@implementation iOSWifiConnect
+@implementation cordovaNetworkManager
 
 - (id)fetchSSIDInfo {
     // see http://stackoverflow.com/a/5198968/907720
@@ -17,7 +17,7 @@
     return info;
 }
 
-- (void)connectNetwork:(CDVInvokedUrlCommand*)command {
+- (void)iOSConnectNetwork:(CDVInvokedUrlCommand*)command {
     CDVPluginResult *pluginResult = nil;
 
 	NSString * ssidString;
@@ -49,7 +49,7 @@
                                 callbackId:command.callbackId];
 }
 
-- (void)disconnectNetwork:(CDVInvokedUrlCommand*)command {
+- (void)iOSDisconnectNetwork:(CDVInvokedUrlCommand*)command {
     CDVPluginResult *pluginResult = nil;
 
 	NSString * ssidString;
@@ -104,5 +104,80 @@
     [self.commandDelegate sendPluginResult:pluginResult
                                 callbackId:command.callbackId];
 }
+
+// Android functions
+
+- (void)addNetwork:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult *pluginResult = nil;
+    
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not supported"];
+    
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
+}
+
+- (void)removeNetwork:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult *pluginResult = nil;
+    
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not supported"];
+    
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
+}
+
+- (void)androidConnectNetwork:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult *pluginResult = nil;
+    
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not supported"];
+    
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
+}
+
+- (void)androidDisconnectNetwork:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult *pluginResult = nil;
+    
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not supported"];
+    
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
+}
+
+- (void)listNetworks:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult *pluginResult = nil;
+    
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not supported"];
+    
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
+}
+
+- (void)getScanResults:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult *pluginResult = nil;
+    
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not supported"];
+    
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
+}
+
+- (void)startScan:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult *pluginResult = nil;
+
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not supported"];
+
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
+}
+
+- (void)disconnect:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult *pluginResult = nil;
+    
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not supported"];
+    
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
+}
+
 
 @end

@@ -4,6 +4,19 @@
 
 @implementation iOSWifiConnect
 
+- (id)fetchSSIDInfo {
+    // see http://stackoverflow.com/a/5198968/907720
+    NSArray *ifs = (__bridge_transfer NSArray *)CNCopySupportedInterfaces();
+    NSLog(@"Supported interfaces: %@", ifs);
+    NSDictionary *info;
+    for (NSString *ifnam in ifs) {
+        info = (__bridge_transfer NSDictionary *)CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifnam);
+        NSLog(@"%@ => %@", ifnam, info);
+        if (info && [info count]) { break; }
+    }
+    return info;
+}
+
 - (void)connectNetwork:(CDVInvokedUrlCommand*)command {
     CDVPluginResult *pluginResult = nil;
 
@@ -56,6 +69,38 @@
 		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"iOS 11+ not available"];
 	}
 
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
+}
+
+- (void)getConnectedSSID:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult *pluginResult = nil;
+    NSDictionary *r = [self fetchSSIDInfo];
+
+    NSString *ssid = [r objectForKey:(id)kCNNetworkInfoKeySSID]; //@"SSID"
+
+    if (ssid && [ssid length]) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssid];
+    } else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not available"];
+    }
+
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
+}
+
+- (void)getConnectedBSSID:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult *pluginResult = nil;
+    NSDictionary *r = [self fetchSSIDInfo];
+    
+    NSString *bssid = [r objectForKey:(id)kCNNetworkInfoKeyBSSID]; //@"SSID"
+    
+    if (bssid && [bssid length]) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:bssid];
+    } else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not available"];
+    }
+    
     [self.commandDelegate sendPluginResult:pluginResult
                                 callbackId:command.callbackId];
 }

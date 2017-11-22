@@ -1,7 +1,7 @@
-iOS Wifi Connect - Cordova
+iOS-Cordova-Network-Manager
 ======
 
-A simple plugin that uses NEHotspotConfigurationManager for iOS11+ to directly connect to networks for cordova.
+A simple plugin that uses NEHotspotConfigurationManager for iOS11+ to directly connect to networks for cordova. Also contains a few other bits of functionality.
 
 - iOS only
 

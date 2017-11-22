@@ -8,7 +8,9 @@ A simple plugin that uses NEHotspotConfigurationManager for iOS11+ to directly c
 API:
 
 - connectNetwork
+
  Example: 
+
 		iOSWifiConnect.connectNetwork(ssidToConnectTo, ssidPassword,
             function() {
                 //Success callback of the function
@@ -20,5 +22,7 @@ API:
         });
 
 - disconnectNetwork
+
  Example: 
+
 		iOSWifiConnect.disconnectNetwork(ssidToDisconnect)

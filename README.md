@@ -1,5 +1,4 @@
 # Cordova Network Manager
-======
 
 Cordova Network Manager enables Wifi management for both Android and iOS applications within Cordova/Phonegap projects.
 

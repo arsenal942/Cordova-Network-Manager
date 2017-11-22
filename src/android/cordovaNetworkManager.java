@@ -22,7 +22,7 @@
     SOFTWARE.
  */
 
-package com.pylonproducts.wifiwizard;
+package cordova-plugin-cordovanetworkmanager;
 
 import org.apache.cordova.*;
 import java.util.List;

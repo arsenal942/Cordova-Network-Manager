@@ -9,7 +9,7 @@
     ]
   },
   "author": "Nicholas Clancy",
-  "license": "Apache 2.0",
+  "license": "MIT",
   "description": "Cordova Network Manager for Android and iOS",
   "bugs": {
     "url": "https://github.com/arsenal942/Cordova-Network-Manager/issues"

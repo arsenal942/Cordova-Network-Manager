@@ -1,23 +1,81 @@
-Cordova-Network-Manager
+# Cordova Network Manager
 ======
 
-Cordova Network Manager - API is a WIP
+Cordova Network Manager enables Wifi management for both Android and iOS applications within Cordova/Phonegap projects.
 
-- iOS
-- Android
+iOS has limited functionality as Apple's WifiManager equivalent is only available  as a private API. Any app that used these features would not be allowed on the app store.
 
-API:
+This readme is a work in progress and so are the comments in the code.
 
-- connectNetwork
+# Global Functions
+These are functions that can be used by both Android and iOS applications
+```javascript
+cordovaNetworkManager.getConnectedSSID(success, fail)
+```
+```javascript
+cordovaNetworkManager.getConnectedBSSID(success, fail)
+```
 
- Example: 
+# iOS Functions
+For functionality, you need to note the following:
+ - Connect/Disconnect only works for iOS11+
+ - Can't run in the simulator so you need to attach an actual device when building with xCode
+ - Need to add the 'HotspotConfiguration' and 'NetworkExtensions' capabilities to your xCode project
 
-	cordovaNetworkManager.connectNetwork(ssidToConnectTo, ssidPassword, successCallbackFunction, errorCallbackFunction);
-Note: //Success callback of the function simply fires when the function worked and NOT when the network has successfully connected. Simply run a timeout function that after 10seconds checks if the connected network is equal to the network you wanted to connect to.
+```javascript
+cordovaNetworkManager.iOSConnectNetwork(ssid, ssidPassword, success, fail)
+```
+```javascript
+cordovaNetworkManager.iOSDisconnectNetwork(ssid, success, fail)
+```
 
+# Android Functions
+Based off the original [WifiWizard](https://github.com/hoerresb/WifiWizard) however will undergo a rework. 
 
-- disconnectNetwork
+```javascript
+cordovaNetworkManager.androidConnectNetwork(ssid, success, fail)
+```
+```javascript
+cordovaNetworkManager.androidDisconnectNetwork(ssid, success, fail)
+```
+```javascript
+cordovaNetworkManager.formatWifiConfig(ssid, password, algorithm)
+```
+```javascript
+cordovaNetworkManager.formatWPAConfig(ssid, password)
+```
+```javascript
+cordovaNetworkManager.addNetwork(wifi, success, fail)
+```
+```javascript
+cordovaNetworkManager.removeNetwork(wifi, success, fail)
+```
+```javascript
+cordovaNetworkManager.listNetworks(success, fail)
+```
+```javascript
+cordovaNetworkManager.startScan(success, fail)
+```
+```javascript
+cordovaNetworkManager.getScanResults([options], success, fail)
+```
+```javascript
+cordovaNetworkManager.isWifiEnabled(success, fail)
+```
+```javascript
+cordovaNetworkManager.setWifiEnabled(enabled, success, fail)
+```
 
- Example: 
+### Installation
 
-	cordovaNetworkManager.disconnectNetwork(ssidToDisconnect)
+##### Master
+Run ```cordova plugin add https://github.com/arsenal942/Cordova-Network-Manager``` - Note that the plugin is in active development and this will pull the most recent commits. If you are wanting to have the latest and greatest stable version, then run the 'Releases' command below.
+
+##### Releases
+Not yet added to NPM
+Run ```cordova plugin add cordova-plugin-cordovanetworkmanager```
+
+License
+----
+
+MIT

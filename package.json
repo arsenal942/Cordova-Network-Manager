@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-cordovanetworkmanager",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "cordova": {
     "id": "cordova-plugin-cordovanetworkmanager",
     "platforms": [

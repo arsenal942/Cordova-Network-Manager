@@ -69,6 +69,7 @@ cordovaNetworkManager.setWifiEnabled(enabled, success, fail)
 
 ##### Master
 Run ```cordova plugin add https://github.com/arsenal942/Cordova-Network-Manager``` 
+
 This plugin is in active development. If you are wanting to have the latest and greatest stable version, then run the 'Releases' command below.
 
 ##### Releases

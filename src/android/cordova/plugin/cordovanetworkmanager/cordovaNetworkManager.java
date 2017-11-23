@@ -319,8 +319,7 @@ public class cordovaNetworkManager extends CordovaPlugin {
 					}
 				}, 
 			10000);		
-		}
-        } else {
+		} else {
             callbackContext.error("cordovaNetworkManager: cannot connect to network");
             return false;
         }

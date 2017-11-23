@@ -284,7 +284,6 @@ public class cordovaNetworkManager extends CordovaPlugin {
             SupplicantState supState;
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
             supState = wifiInfo.getSupplicantState();
-            callbackContext.success(supState.toString());
 
 			//Check if network connected successfully
 			new android.os.Handler().postDelayed(
@@ -312,6 +311,7 @@ public class cordovaNetworkManager extends CordovaPlugin {
 						}
 
 						if(ssid == ssidToConnect){
+							callbackContext.success(supState.toString());
 							return true;
 						}	
 						callbackContext.error("cordovaNetworkManager: Network didn't connect successfully.");

@@ -285,9 +285,8 @@ public class cordovaNetworkManager extends CordovaPlugin {
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
             supState = wifiInfo.getSupplicantState();
             callbackContext.success(supState.toString());
-			boolean checkIfNetworkConnectedSuccessfully(ssidToConnect);
 
-			if(checkIfNetworkConnectedSuccessfully){
+			if(checkIfNetworkConnectedSuccessfully(ssidToConnect)){
 				return true;
 			} else {
 				callbackContext.error("cordovaNetworkManager: Network didn't connect successfully.");
@@ -583,31 +582,22 @@ public class cordovaNetworkManager extends CordovaPlugin {
         return false;
     }
 
-		private boolean checkIfNetworkConnectedSuccessfully(ssidToConnect){
-	    Log.d(TAG, "cordovaNetworkManager: checkIfNetworkConnectedSuccessfully entered.");
-		try {
-			new android.os.Handler().postDelayed(
-				new Runnable() {
-					public void run() {
-						boolean isNetworkConnectedSuccessfully = checkIFCurrentNetworkIsConnected(ssidToConnect);
-						Log.d(TAG, "cordovaNetworkManager: isNetworkConnectedSuccessfully status: " + isNetworkConnectedSuccessfully);
-						if(isNetworkConnectedSuccessfully){
-							return true;
-						} else {
-							callbackContext.error("cordovaNetworkManager: Network didn't connect successfully.");
-							return false;
-						}
+	private boolean checkIfNetworkConnectedSuccessfully(ssidToConnect){
+		new android.os.Handler().postDelayed(
+			new Runnable() {
+				public void run() {
+					if(isNetworkConnectedSuccessfull(ssidToConnect)){
+						return true;
+					} else {
+						callbackContext.error("cordovaNetworkManager: Network didn't connect successfully.");
+						return false;
 					}
-				}, 
-			10000);
-		} catch {
-			Log.d(TAG, "cordovaNetworkManager: checkIfNetworkConnectedSuccessfully: Error caught.");
-			callbackContext.error("cordovaNetworkManager: Exception caught in: checkIfNetworkConnectedSuccessfully");
-			return false;		
-		}
+				}
+			}, 
+		10000);		
 	}
 
-	private boolean checkIFCurrentNetworkIsConnected(string ssidToConnect){
+	private boolean checkIfCurrentNetworkIsConnected(string ssidToConnect){
         if(!wifiManager.isWifiEnabled()){
             callbackContext.error("Wifi is disabled");
             return false;

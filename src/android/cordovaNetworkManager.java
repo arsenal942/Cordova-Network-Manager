@@ -285,9 +285,15 @@ public class cordovaNetworkManager extends CordovaPlugin {
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
             supState = wifiInfo.getSupplicantState();
             callbackContext.success(supState.toString());
-            return true;
+			boolean checkIfNetworkConnectedSuccessfully(ssidToConnect);
 
-        }else{
+			if(checkIfNetworkConnectedSuccessfully){
+				return true;
+			} else {
+				callbackContext.error("cordovaNetworkManager: Network didn't connect successfully.");
+				return false;
+			}
+        } else {
             callbackContext.error("cordovaNetworkManager: cannot connect to network");
             return false;
         }
@@ -574,6 +580,59 @@ public class cordovaNetworkManager extends CordovaPlugin {
         catch (Exception e) {
             callbackContext.error(e.getMessage());
         }
+        return false;
+    }
+
+		private boolean checkIfNetworkConnectedSuccessfully(ssidToConnect){
+	    Log.d(TAG, "cordovaNetworkManager: checkIfNetworkConnectedSuccessfully entered.");
+		try {
+			new android.os.Handler().postDelayed(
+				new Runnable() {
+					public void run() {
+						boolean isNetworkConnectedSuccessfully = checkIFCurrentNetworkIsConnected(ssidToConnect);
+						Log.d(TAG, "cordovaNetworkManager: isNetworkConnectedSuccessfully status: " + isNetworkConnectedSuccessfully);
+						if(isNetworkConnectedSuccessfully){
+							return true;
+						} else {
+							callbackContext.error("cordovaNetworkManager: Network didn't connect successfully.");
+							return false;
+						}
+					}
+				}, 
+			10000);
+		} catch {
+			Log.d(TAG, "cordovaNetworkManager: checkIfNetworkConnectedSuccessfully: Error caught.");
+			callbackContext.error("cordovaNetworkManager: Exception caught in: checkIfNetworkConnectedSuccessfully");
+			return false;		
+		}
+	}
+
+	private boolean checkIFCurrentNetworkIsConnected(string ssidToConnect){
+        if(!wifiManager.isWifiEnabled()){
+            callbackContext.error("Wifi is disabled");
+            return false;
+        }
+
+        WifiInfo info = wifiManager.getConnectionInfo();
+
+        if(info == null){
+            callbackContext.error("Unable to read wifi info");
+            return false;
+        }
+
+        String ssid = info.getSSID();
+        if(ssid.isEmpty()) {
+            ssid = info.getBSSID();
+        }
+        if(ssid.isEmpty()){
+            callbackContext.error("SSID is empty");
+            return false;
+        }
+
+		if(ssid == ssidToConnect){
+		    return true;
+		}	
+
         return false;
     }
 

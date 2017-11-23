@@ -28,7 +28,7 @@
           <param name="onload" value="true" />
         </feature>
       </config-file>
-      <source-file src="src/android/cordovaNetworkManager.java" target-dir="src/android" />
+      <source-file src="src/android/cordova/plugin/cordovaNetworkManager/cordovaNetworkManager.java" target-dir="src/android/cordova/plugin/cordovaNetworkManager" />
     </platform>
 
     <platform name="ios">      

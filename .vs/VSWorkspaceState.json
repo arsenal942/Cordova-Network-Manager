@@ -3,9 +3,12 @@
     "",
     "\\src",
     "\\src\\android",
+    "\\src\\android\\cordova",
+    "\\src\\android\\cordova\\plugin",
+    "\\src\\android\\cordova\\plugin\\cordovanetworkmanager",
     "\\src\\ios",
     "\\www"
   ],
-  "SelectedNode": "\\src\\android\\cordovaNetworkManager.java",
+  "SelectedNode": "\\www\\cordovaNetworkManager.js",
   "PreviewInSolutionExplorer": false
 }

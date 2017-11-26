@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordovaNetworkManager"
-    version="1.3.0">
+    version="1.4.0">
     <name>cordovaNetworkManager</name>
     <description>Cordova Network Manager for Android and iOS</description>
     <license>MIT</license>
@@ -28,7 +28,7 @@
       
       <config-file target="res/xml/config.xml" parent="/*">
         <feature name="cordovaNetworkManager">
-          <param name="android-package" value="cordova-plugin-cordovanetworkmanager" />
+          <param name="android-package" value="cordovanetworkmanager" />
         </feature>
       </config-file>
 

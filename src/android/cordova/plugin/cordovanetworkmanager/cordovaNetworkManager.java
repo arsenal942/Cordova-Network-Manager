@@ -22,7 +22,7 @@
     SOFTWARE.
  */
 
-package cordova-plugin-cordovanetworkmanager;
+package cordovaNetworkManager;
 
 import org.apache.cordova.*;
 import java.util.List;

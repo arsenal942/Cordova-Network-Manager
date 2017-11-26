@@ -1,8 +1,8 @@
 {
-  "name": "cordova-plugin-cordovanetworkmanager",
-  "version": "1.3.0",
+  "name": "cordovanetworkmanager",
+  "version": "1.4.0",
   "cordova": {
-    "id": "cordova-plugin-cordovanetworkmanager",
+    "id": "cordovanetworkmanager",
     "platforms": [
       "android",
       "ios"

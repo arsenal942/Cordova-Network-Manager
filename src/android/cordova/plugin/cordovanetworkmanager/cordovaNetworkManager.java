@@ -273,56 +273,51 @@ public class cordovaNetworkManager extends CordovaPlugin {
             return false;
         }
 
-        int networkIdToConnect = ssidToNetworkId(ssidToConnect);
+      int networkIdToConnect = ssidToNetworkId(ssidToConnect);
 
-        if (networkIdToConnect >= 0) {
-            // We disable the network before connecting, because if this was the last connection before
-            // a disconnect(), this will not reconnect.
-            wifiManager.disableNetwork(networkIdToConnect);
-            wifiManager.enableNetwork(networkIdToConnect, true);
+      if (networkIdToConnect >= 0) {
+          // We disable the network before connecting, because if this was the last connection before
+          // a disconnect(), this will not reconnect.
+          wifiManager.disableNetwork(networkIdToConnect);
+          wifiManager.enableNetwork(networkIdToConnect, true);
 
-            SupplicantState supState;
-            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-            supState = wifiInfo.getSupplicantState();
+          final int TIMES_TO_RETRY = 15;
+          for(int i = 0; i < TIMES_TO_RETRY; i++) {
+              WifiInfo info = wifiManager.getConnectionInfo();
+              NetworkInfo.DetailedState connectionState = info.getDetailedStateOf(info.getSupplicantState());
 
-			//Check if network connected successfully
-			new android.os.Handler().postDelayed(
-				new Runnable() {
-					public void run() {
-						if(!wifiManager.isWifiEnabled()){
-							callbackContext.error("Wifi is disabled");
-							return false;
-						}
+              boolean isConnected =
+                      // need to ensure we're on correct network because sometimes this code is
+                      // reached before the initial network has disconnected
+                      info.getNetworkId() == networkIdToConnect && (
+                              connectionState == NetworkInfo.DetailedState.CONNECTED ||
+                              // Android seems to sometimes get stuck in OBTAINING_IPADDR after it has received one
+                              (connectionState == NetworkInfo.DetailedState.OBTAINING_IPADDR && info.getIpAddress() != 0)
+                      );
+              if (isConnected) {
+                  callbackContext.success("Network " + ssidToConnect + " connected!");
+                  return true;
+              }
 
-						WifiInfo info = wifiManager.getConnectionInfo();
-
-						if(info == null){
-							callbackContext.error("Unable to read wifi info");
-							return false;
-						}
-
-						String ssid = info.getSSID();
-						if(ssid.isEmpty()) {
-							ssid = info.getBSSID();
-						}
-						if(ssid.isEmpty()){
-							callbackContext.error("SSID is empty");
-							return false;
-						}
-
-						if(ssid == ssidToConnect){
-							callbackContext.success(supState.toString());
-							return true;
-						}	
-						callbackContext.error("cordovaNetworkManager: Network didn't connect successfully.");
-						return false;
-					}
-				}, 
-			10000);		
-		} else {
-            callbackContext.error("cordovaNetworkManager: cannot connect to network");
-            return false;
-        }
+              Log.d(TAG, "cordovaNetworkManager: Got " + connectionState.name() + " on " + (i + 1) + " out of " + TIMES_TO_RETRY);
+              final int ONE_SECOND = 1000;
+              try {
+                  Thread.sleep(ONE_SECOND);
+              }
+              catch (InterruptedException e) {
+                  Log.e(TAG, e.getMessage());
+                  callbackContext.error("Received InterruptedException while connecting");
+                  return false;
+              }
+          }
+          callbackContext.error("Network " + ssidToConnect + " failed to finish connecting within the timeout");
+          Log.d(TAG, "cordovaNetworkManager: Network failed to finish connecting within the timeout");
+          return false;
+      } else {
+          callbackContext.error("Network " + ssidToConnect + " not found!");
+          Log.d(TAG, "cordovaNetworkManager: Network not found to connect.");
+          return false;
+      }
     }
 
     /**

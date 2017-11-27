@@ -32,7 +32,7 @@
         </feature>
       </config-file>
 
-      <source-file src="src/android/cordova/plugin/cordovaNetworkManager/cordovaNetworkManager.java" target-dir="src/android/cordova/plugin/cordovaNetworkManager" />
+      <source-file src="src/android/cordova/plugin/cordovanetworkmanager/cordovaNetworkManager.java" target-dir="src/android/cordova/plugin/cordovanetworkmanager" />
     </platform>
 
     <platform name="ios">

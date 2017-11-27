@@ -28,7 +28,7 @@
       
       <config-file target="res/xml/config.xml" parent="/*">
         <feature name="cordovaNetworkManager">
-          <param name="android-package" value="cordovanetworkmanager" />
+          <param name="android-package" value="cordovaNetworkManager" />
         </feature>
       </config-file>
 

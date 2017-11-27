@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordovaNetworkManager"
     version="1.5.0">
+  
     <name>cordovaNetworkManager</name>
     <description>Cordova Network Manager for Android and iOS</description>
     <license>MIT</license>
@@ -17,6 +18,7 @@
 
   <!-- android -->
     <platform name="android">
+      
       <config-file target="AndroidManifest.xml" parent="/manifest">
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -30,7 +32,7 @@
         </feature>
       </config-file>
 
-      <source-file src="src/android/cordova/plugin/cordovaNetworkManager/cordovaNetworkManager.java" target-dir="src/android/cordova/plugin/cordovaNetworkManager/" />
+      <source-file src="src/android/cordova/plugin/cordovaNetworkManager/cordovaNetworkManager.java" target-dir="src/android/cordova/plugin/cordovaNetworkManager" />
     </platform>
 
     <platform name="ios">

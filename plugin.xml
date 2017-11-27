@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordovaNetworkManager"
-    version="1.4.0">
+    version="1.5.0">
     <name>cordovaNetworkManager</name>
     <description>Cordova Network Manager for Android and iOS</description>
     <license>MIT</license>
@@ -11,24 +11,22 @@
     <repo>https://github.com/arsenal942/cordovaNetworkManager.git</repo>
     <issue>https://github.com/arsenal942/cordovaNetworkManager/issues</issue>
 
-    <!-- android -->
-    <platform name="android">
-      <js-module src="www/cordovaNetworkManager.js" name="cordovaNetworkManager">
-        <runs/>
-        <clobbers target="window.cordovaNetworkManager" />
-      </js-module>
+    <js-module src="www/cordovaNetworkManager.js" name="cordovaNetworkManager">
+      <clobbers target="window.cordovaNetworkManager" />
+    </js-module>
 
+  <!-- android -->
+    <platform name="android">
       <config-file target="AndroidManifest.xml" parent="/manifest">
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
         <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-        <uses-permission android:name="android.permission.INTERNET" />
-        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
       </config-file>
       
       <config-file target="res/xml/config.xml" parent="/*">
         <feature name="cordovaNetworkManager">
           <param name="android-package" value="cordovaNetworkManager" />
+          <param name="onload" value="true" />
         </feature>
       </config-file>
 
@@ -36,11 +34,6 @@
     </platform>
 
     <platform name="ios">
-        <js-module src="www/cordovaNetworkManager.js" name="cordovaNetworkManager">
-          <runs/>
-          <clobbers target="window.cordovaNetworkManager" />
-        </js-module>
-      
         <config-file target="config.xml" parent="/*">
             <feature name="cordovaNetworkManager">
                 <param name="ios-package" value="cordovaNetworkManager"/>

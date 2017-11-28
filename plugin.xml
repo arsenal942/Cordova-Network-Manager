@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="cordovaNetworkManager"
+    id="cordovanetworkmanager"
     version="1.5.0">
   
     <name>cordovaNetworkManager</name>
@@ -27,7 +27,7 @@
       
       <config-file target="res/xml/config.xml" parent="/*">
         <feature name="cordovaNetworkManager">
-          <param name="android-package" value="cordovaNetworkManager" />
+          <param name="android-package" value="cordovanetworkmanager.cordovaNetworkManager" />
           <param name="onload" value="true" />
         </feature>
       </config-file>

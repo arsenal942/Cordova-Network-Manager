@@ -13,11 +13,11 @@ Have you read the plugins' Code of Conduct? By creating an Issue, you are expect
 
 ### Issue type
 Select all that apply
-	[-] Bug
-	[-] Enhancement
-	[-] Task
-	[-] Question
-	[-] Other
+	- [ ] Bug
+	- [ ] Enhancement
+	- [ ] Task
+	- [ ] Question
+	- [ ] Other
 
 ### Description
 

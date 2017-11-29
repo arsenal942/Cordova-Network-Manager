@@ -100,7 +100,7 @@ var cordovaNetworkManager = {
         if (ssid === undefined || ssid === null) {
             ssid = "";
         }
-        ssid = ssid.trim()
+        ssid = ssid.trim();
 
         if (ssid.charAt(0) != '"') {
             ssid = '"' + ssid;

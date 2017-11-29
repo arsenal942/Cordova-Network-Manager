@@ -6,9 +6,9 @@ Have you read the plugins' Code of Conduct? By creating an Issue, you are expect
 
 ### Prerequisites
 
-* [ ] Put an X between the brackets on this line if you have done all of the following:
-    * Checked that your issue isn't already filed: https://github.com/arsenal942/Cordova-Network-Manager/issues
-	* Make sure you fill out the Issue Type below
+* [ ] Check  all boxes if you have done the following:
+- [ ] Checked that your issue isn't already filed: https://github.com/arsenal942/Cordova-Network-Manager/issues
+- [ ] Make sure you fill out the Issue Type below
 
 
 ### Issue type

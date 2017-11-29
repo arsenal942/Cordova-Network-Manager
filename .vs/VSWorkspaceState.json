@@ -3,12 +3,10 @@
     "",
     "\\src",
     "\\src\\android",
-    "\\src\\android\\cordova",
-    "\\src\\android\\cordova\\plugin",
-    "\\src\\android\\cordova\\plugin\\cordovanetworkmanager",
+    "\\src\\android\\cordovanetworkmanager",
     "\\src\\ios",
     "\\www"
   ],
-  "SelectedNode": "\\www\\cordovaNetworkManager.js",
+  "SelectedNode": "\\CODE_OF_CONDUCT.md",
   "PreviewInSolutionExplorer": false
 }

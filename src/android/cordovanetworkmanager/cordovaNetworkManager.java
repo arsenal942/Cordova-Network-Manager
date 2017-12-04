@@ -55,7 +55,6 @@ public class cordovaNetworkManager extends CordovaPlugin {
     private static final String GET_CONNECTED_SSID = "getConnectedSSID";
     private static final String IS_WIFI_ENABLED = "isWifiEnabled";
     private static final String SET_WIFI_ENABLED = "setWifiEnabled";
-	private static final String TEST_NEW_CONNECT = "testNewConnect";
     private static final String TAG = "cordovaNetworkManager";
 
     private WifiManager wifiManager;
@@ -110,69 +109,12 @@ public class cordovaNetworkManager extends CordovaPlugin {
         else if(action.equals(GET_CONNECTED_SSID)) {
             return this.getConnectedSSID(callbackContext);
         }
-		else if(action.equals(TEST_NEW_CONNECT)) {
-			return this.testNewConnect(callbackContext, data);
-		}
         else {
             callbackContext.error("Incorrect action parameter: " + action);
         }
 
         return false;
     }
-
-	private boolean testNewConnect(CallbackContext callbackContext, JSONArray data){
-		try {
-			WifiManager wifiManager = (WifiManager) super.getSystemService(android.content.Context.WIFI_SERVICE);
-			WifiConfiguration wc = new WifiConfiguration();
-			WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-			wc.SSID = data.getString(0);
-
-			wc.preSharedKey = data.getString(1);
-			wc.status = WifiConfiguration.Status.ENABLED;
-			wc.allowedProtocols.set(WifiConfiguration.Protocol.RSN);
-			wc.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
-			wc.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);
-			wc.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.CCMP);
-			wc.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.TKIP);
-			wc.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP40);
-			wc.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP104);
-			wc.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.CCMP);
-			wc.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
-			wifiManager.setWifiEnabled(true);
-
-			int netId = wifiManager.addNetwork(wc);
-
-			if (netId == -1) {
-				netId = getExistingNetworkId(SSID);
-			}
-
-			wifiManager.disconnect();
-			wifiManager.enableNetwork(netId, true);
-			wifiManager.reconnect();
-			callbackContext.success("testNewConnect: Network connected.");
-			return true;
-
-		} catch (Exception e) {
-			callbackContext.error("testNewConnect: Network connected failed: " + e.getMessage());
-            Log.d(TAG,e.getMessage());
-            return false;
-		}
-	}
-
-	private int getExistingNetworkId(String SSID) {
-		WifiManager wifiManager = (WifiManager) super.getSystemService(Context.WIFI_SERVICE);
-		List<WifiConfiguration> configuredNetworks = wifiManager.getConfiguredNetworks();
-
-		if (configuredNetworks != null) {
-			for (WifiConfiguration existingConfig : configuredNetworks) {
-				if (existingConfig.SSID.equals(SSID)) {
-					return existingConfig.networkId;
-				}
-			}
-		}
-
-		return -1;
-	}
 
     /**
      * This methods adds a network to the list of available WiFi networks.

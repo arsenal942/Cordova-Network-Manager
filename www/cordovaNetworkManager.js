@@ -26,6 +26,14 @@
 
 var cordovaNetworkManager = {
 
+    testNewConnect: function (ssid, password, win, fail) {
+        if (typeof win != "function") {
+            console.log("testNewConnect third parameter must be a function to handle enable result.");
+            return;
+        }
+        cordova.exec(win, fail, "cordovaNetworkManager", "testNewConnect", [ssid], [password]);
+    },
+
 /*iOS and Android functions*/
 
     getCurrentSSID: function (win, fail) {

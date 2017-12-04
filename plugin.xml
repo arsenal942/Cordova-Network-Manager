@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordovanetworkmanager"
-    version="1.9.2">
+    version="1.9.3">
   
     <name>cordovaNetworkManager</name>
     <description>Cordova Network Manager for Android and iOS</description>
@@ -21,8 +21,9 @@
       
       <config-file target="AndroidManifest.xml" parent="/manifest">
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+        <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
       </config-file>
       
       <config-file target="res/xml/config.xml" parent="/*">

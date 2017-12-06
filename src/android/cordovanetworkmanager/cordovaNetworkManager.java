@@ -263,11 +263,11 @@ public class cordovaNetworkManager extends CordovaPlugin {
             return false;
         }
         String ssidToConnect = "";
-		String currentSsid = "";
+		String currentSSID = "";
 
         try {
             ssidToConnect = data.getString(0);
-			currentSsid = data.getString(1);
+			currentSSID = data.getString(1);
         }
         catch (Exception e) {
             callbackContext.error(e.getMessage());
@@ -276,7 +276,7 @@ public class cordovaNetworkManager extends CordovaPlugin {
         }
 
         int networkIdToConnect = ssidToNetworkId(ssidToConnect);
-		int currentNetworkId = ssidToNetworkId(currentSsid);
+		int currentNetworkId = ssidToNetworkId(currentSSID);
 
         if (networkIdToConnect >= 0 && currentNetworkId >= 0) {
             // We disable the network before connecting, because if this was the last connection before

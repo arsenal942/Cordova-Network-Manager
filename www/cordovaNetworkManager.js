@@ -160,8 +160,8 @@ var cordovaNetworkManager = {
         cordova.exec(win, fail, "cordovaNetworkManager", "removeNetwork", [cordovaNetworkManager.formatWifiString(SSID)]);
     },
 
-    androidConnectNetwork: function (SSID, win, fail) {
-        cordova.exec(win, fail, "cordovaNetworkManager", "androidConnectNetwork", [cordovaNetworkManager.formatWifiString(SSID)]);
+    androidConnectNetwork: function (SSID, currentSSID, win, fail) {
+        cordova.exec(win, fail, "cordovaNetworkManager", "androidConnectNetwork", [cordovaNetworkManager.formatWifiString(SSID)], [cordovaNetworkManager.formatWifiString(currentSSID)]);
     },
 
     androidDisconnectNetwork: function (SSID, win, fail) {

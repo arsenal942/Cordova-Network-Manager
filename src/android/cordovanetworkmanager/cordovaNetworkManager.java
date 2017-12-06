@@ -332,8 +332,6 @@ public class cordovaNetworkManager extends CordovaPlugin {
         if (networkIdToDisconnect > 0) {
 			if (currentNetworkId > 0){
 				wifiManager.disableNetwork(networkIdToDisconnect);
-			} else {
-				console.log("androidDisconnectNetwork: currentNetworkId was not > 0: " + currentNetworkId);
 			}
 			wifiManager.enableNetwork(currentNetworkId, true);
             callbackContext.success("Network " + ssidToDisconnect + " disconnected!");

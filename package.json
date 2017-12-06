@@ -1,6 +1,6 @@
 {
   "name": "cordovanetworkmanager",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "cordova": {
     "id": "cordovanetworkmanager",
     "platforms": [

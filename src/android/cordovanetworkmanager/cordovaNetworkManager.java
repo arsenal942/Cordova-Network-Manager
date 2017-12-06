@@ -284,6 +284,7 @@ public class cordovaNetworkManager extends CordovaPlugin {
 
 			wifiManager.disableNetwork(currentNetworkId);
 			wifiManager.enableNetwork(networkIdToConnect, true);
+			wifiManager.enableNetwork(currentNetworkId, false);
 
             SupplicantState supState;
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();

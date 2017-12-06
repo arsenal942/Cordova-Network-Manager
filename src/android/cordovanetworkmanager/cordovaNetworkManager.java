@@ -284,11 +284,11 @@ public class cordovaNetworkManager extends CordovaPlugin {
 
 			wifiManager.disableNetwork(currentNetworkId);
 			wifiManager.enableNetwork(networkIdToConnect, true);
-			wifiManager.enableNetwork(currentNetworkId, false);
 
             SupplicantState supState;
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
             supState = wifiInfo.getSupplicantState();
+
             callbackContext.success(supState.toString());
             return true;
 
@@ -313,9 +313,12 @@ public class cordovaNetworkManager extends CordovaPlugin {
             return false;
         }
         String ssidToDisconnect = "";
+		String currentSSID = "";
+
         // TODO: Verify type of data here!
         try {
             ssidToDisconnect = data.getString(0);
+			currentSSID = data.getString(1);
         }
         catch (Exception e) {
             callbackContext.error(e.getMessage());
@@ -324,9 +327,15 @@ public class cordovaNetworkManager extends CordovaPlugin {
         }
 
         int networkIdToDisconnect = ssidToNetworkId(ssidToDisconnect);
+		int currentNetworkId = ssidToNetworkId(currentSSID);
 
         if (networkIdToDisconnect > 0) {
-            wifiManager.disableNetwork(networkIdToDisconnect);
+			if (currentNetworkId > 0){
+				wifiManager.disableNetwork(networkIdToDisconnect);
+			} else {
+				console.log("androidDisconnectNetwork: currentNetworkId was not > 0: " + currentNetworkId);
+			}
+			wifiManager.enableNetwork(currentNetworkId, true);
             callbackContext.success("Network " + ssidToDisconnect + " disconnected!");
             return true;
         }

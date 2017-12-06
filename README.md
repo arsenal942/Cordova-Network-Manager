@@ -35,8 +35,9 @@ Based off the original [WifiWizard](https://github.com/hoerresb/WifiWizard) howe
 cordovaNetworkManager.androidConnectNetwork(ssid, success, fail)
 ```
 ```javascript
-cordovaNetworkManager.androidDisconnectNetwork(ssid, success, fail)
+cordovaNetworkManager.androidDisconnectNetwork(ssid, ssidToEnable, success, fail)
 ```
+ - 'ssidToEnable' is a parameter that tells the method what network we need to enable. 'androidConnectNetwork' disables the devices current SSID to avoid the issue whereby Android OS just connects back to the already specified network.
 ```javascript
 cordovaNetworkManager.formatWifiConfig(ssid, password, algorithm)
 ```

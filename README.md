@@ -32,8 +32,9 @@ cordovaNetworkManager.iOSDisconnectNetwork(ssid, success, fail)
 Based off the original [WifiWizard](https://github.com/hoerresb/WifiWizard) however will undergo a rework. 
 
 ```javascript
-cordovaNetworkManager.androidConnectNetwork(ssid, success, fail)
+cordovaNetworkManager.androidConnectNetwork(ssid, ssidToDisable, success, fail)
 ```
+ - 'ssidToDisable' is a parameter that tells the method what network we need to disable.
 ```javascript
 cordovaNetworkManager.androidDisconnectNetwork(ssid, ssidToEnable, success, fail)
 ```

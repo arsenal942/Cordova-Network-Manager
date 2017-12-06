@@ -282,7 +282,7 @@ public class cordovaNetworkManager extends CordovaPlugin {
             // We disable the network before connecting, because if this was the last connection before
             // a disconnect(), this will not reconnect.
 
-			wifiManager.enableNetwork(currentNetworkId, true);
+			wifiManager.enableNetwork(currentNetworkId, false);
 			wifiManager.disableNetwork(currentNetworkId);
 			wifiManager.enableNetwork(networkIdToConnect, true);
 

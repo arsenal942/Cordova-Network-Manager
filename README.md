@@ -4,7 +4,7 @@ Cordova Network Manager enables Wifi management for both Android and iOS applica
 
 iOS has limited functionality as Apple's WifiManager equivalent is only available  as a private API. Any app that used these features would not be allowed on the app store.
 
-This readme is a work in progress and so are the comments in the code.
+Contact @arsenal942 via GitHub or discord at: Nomm#0176
 
 # Global Functions
 These are functions that can be used by both Android and iOS applications

@@ -536,9 +536,9 @@ public class cordovaNetworkManager extends CordovaPlugin {
 
         // For each network in the list, compare the SSID with the given one
         for (WifiConfiguration test : currentNetworks) {
-            if ( test.SSID.equals(ssid) ) {
-                networkId = test.networkId;
-            }
+			if (test.SSID != null && test.SSID.equals(ssid)) {
+				networkId = test.networkId;
+			}
         }
 
         return networkId;

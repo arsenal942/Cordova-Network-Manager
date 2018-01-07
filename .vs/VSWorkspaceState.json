@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\android",
+    "\\src\\android\\cordovanetworkmanager",
+    "\\www"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\plugin.xml",
   "PreviewInSolutionExplorer": false
 }

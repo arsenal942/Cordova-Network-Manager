@@ -81,7 +81,10 @@
 
 	NSLog(@"Value of ssid is = %@", ssid);
 
-    if (ssid && ![ssid isEqualToString:@"null"]) {
+	if ([ssid isEqualToString:@"(null)"]) {
+		NSLog(@"ssid is null %@");
+	    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not available"];
+	} else if (ssid && ![ssid isEqualToString:@"(null)"]) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssid];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not available"];
@@ -99,7 +102,7 @@
     
 	NSLog(@"Value of bssid is = %@", bssid);
 
-    if (bssid && ![bssid isEqualToString:@"null"]) {
+    if (bssid && ![bssid isEqualToString:@"(null)"]) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:bssid];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not available"];

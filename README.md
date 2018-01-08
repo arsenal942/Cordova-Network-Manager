@@ -1,7 +1,7 @@
 # Cordova Network Manager
 
 ##### Latest Stable Release: v2.2.0
-##### Latest Dev Release: v2.2.6
+##### Latest Dev Release: v2.2.7
 
 Cordova Network Manager enables Wifi management for both Android and iOS applications within Cordova/Phonegap projects.
 

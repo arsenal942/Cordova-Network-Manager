@@ -4,8 +4,9 @@
     "\\src",
     "\\src\\android",
     "\\src\\android\\cordovanetworkmanager",
+    "\\src\\ios",
     "\\www"
   ],
-  "SelectedNode": "\\plugin.xml",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }

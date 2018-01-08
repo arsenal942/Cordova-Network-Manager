@@ -1,7 +1,7 @@
 # Cordova Network Manager
 
 ##### Latest Stable Release: v2.2.0
-##### Latest Dev Release: v2.2.1
+##### Latest Dev Release: v2.2.2
 
 Cordova Network Manager enables Wifi management for both Android and iOS applications within Cordova/Phonegap projects.
 
@@ -78,7 +78,7 @@ Run ```cordova plugin add https://github.com/arsenal942/Cordova-Network-Manager`
 This plugin is in active development. If you are wanting to have the latest and greatest stable version, then run the 'Releases' command below.
 
 ##### Releases
-Run ```cordova plugin add cordovanetworkmanager```
+Run ```cordova plugin add cordovanetworkmanager@2.2.0```
 
 License
 ----

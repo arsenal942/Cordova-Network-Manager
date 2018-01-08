@@ -79,7 +79,9 @@
 
     NSString *ssid = [r objectForKey:(id)kCNNetworkInfoKeySSID]; //@"SSID"
 
-    if (ssid && [ssid length]) {
+	NSLog(@"Value of ssid is = %@", ssid);
+
+    if (ssid && ![ssid isEqualToString:@""]) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssid];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not available"];

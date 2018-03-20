@@ -38,7 +38,7 @@ var cordovaNetworkManager = {
 
     getCurrentBSSID: function (win, fail) {
         if (typeof win != "function") {
-            console.log("getCurrentSSID first parameter must be a function to handle SSID.");
+            console.log("getCurrentBSSID first parameter must be a function to handle BSSID.");
             return;
         }
         cordova.exec(win, fail, "cordovaNetworkManager", "getConnectedBSSID", []);

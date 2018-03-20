@@ -486,7 +486,7 @@ public class cordovaNetworkManager extends CordovaPlugin {
      * This method retrieves the SSID for the currently connected network
      *
      *    @param    callbackContext        A Cordova callback context
-     *    @return    true if SSID found, false if not.
+     *    @return    true if SSID found, false if unknown or empty.
     */
     private boolean getConnectedSSID(CallbackContext callbackContext){
         if(!wifiManager.isWifiEnabled()){
@@ -502,10 +502,10 @@ public class cordovaNetworkManager extends CordovaPlugin {
         }
 
         String ssid = info.getSSID();
-        if(ssid.isEmpty()) {
+        if(ssid.isEmpty() && ssid == "<unknown ssid>") {
             ssid = info.getBSSID();
         }
-        if(ssid.isEmpty()){
+        if(ssid.isEmpty() && ssid == "<unknown ssid>"){
             callbackContext.error("SSID is empty");
             return false;
         }

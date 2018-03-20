@@ -56,6 +56,7 @@ public class cordovaNetworkManager extends CordovaPlugin {
     private static final String IS_WIFI_ENABLED = "isWifiEnabled";
     private static final String SET_WIFI_ENABLED = "setWifiEnabled";
     private static final String TAG = "cordovaNetworkManager";
+	private static final String GET_CONNECTED_BSSID = "getConnectedBSSID";
 
     private WifiManager wifiManager;
     private CallbackContext callbackContext;
@@ -109,6 +110,9 @@ public class cordovaNetworkManager extends CordovaPlugin {
         else if(action.equals(GET_CONNECTED_SSID)) {
             return this.getConnectedSSID(callbackContext);
         }
+		else if(action.equals(GET_CONNECTED_BSSID)){
+		            return this.getConnectedBSSID(callbackContext);
+		}
         else {
             callbackContext.error("Incorrect action parameter: " + action);
         }
@@ -502,17 +506,39 @@ public class cordovaNetworkManager extends CordovaPlugin {
         }
 
         String ssid = info.getSSID();
-        if(ssid.isEmpty() || ssid == "<unknown ssid>") {
-            ssid = info.getBSSID();
-        }
         if(ssid.isEmpty() || ssid == "<unknown ssid>"){
-            callbackContext.error("SSID is empty");
+            callbackContext.error("SSID is empty or unknown");
             return false;
         }
 
         callbackContext.success(ssid);
         return true;
     }
+
+	/**
+     * This method retrieves the BSSID for the currently connected network
+     *
+     *    @param    callbackContext        A Cordova callback context
+     *    @return    true if BSSID found, false if null or empty.
+    */
+	private boolean getConnectedBSSID(CallbackContext callbackContext){
+	    if(!wifiManager.isWifiEnabled()){
+            callbackContext.error("Wifi is disabled");
+            return false;
+        }
+
+		WifiInfo info = wifiManager.getConnectionInfo();
+
+		String bssid = info.getBSSID();
+
+        if(bssid.isEmpty() || bssid == null){
+            callbackContext.error("BSSID is empty or unknown");
+            return false;
+        }
+
+        callbackContext.success(bssid);
+        return true;
+	}
 
     /**
      * This method retrieves the current WiFi status

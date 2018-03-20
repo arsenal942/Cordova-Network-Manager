@@ -2,9 +2,9 @@
 
   
 
-#####  Latest Stable Release: v2.3.0
+#####  Latest Stable Release: v2.4.0 (20/03/2018)
 
-#####  Latest Dev Release: v2.3.4 (20/03/2018)
+#####  Latest Dev Release: v2.4.0 (20/03/2018)
 
   
 
@@ -22,10 +22,17 @@ These are functions that can be used by both Android and iOS applications.
 
 ```javascript
 
-cordovaNetworkManager.getConnectedSSID(success, fail)
+cordovaNetworkManager.getCurrentSSID(success, fail)
 
 ```
 - Returns the current SSID and passes to the success callback.
+
+```javascript
+
+cordovaNetworkManager.getCurrentBSSID(success, fail)
+
+```
+- Returns the current BSSID and passes to the success callback.
 
   
 

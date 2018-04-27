@@ -38,7 +38,7 @@
 			configuration.joinOnce = YES;
 
 			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:^(nil error) {
-			  if (error != nil) {
+			  if (error) {
 			  	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Error while configuring WiFi " + error];
 			  } else {
 				pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssidString];

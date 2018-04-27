@@ -39,7 +39,7 @@
 
 			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:^(NSError * _Nullable error) {
 			  if (error != nil) {
-			  	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"nehotspot_error", @"Error while configuring WiFi", error];
+			  	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Error while configuring WiFi " + error];
 			  } else {
 				pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssidString];
 			  }

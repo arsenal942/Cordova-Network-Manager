@@ -166,7 +166,7 @@ This plugin is in active development. If you are wanting to have the latest and 
 
 ####  Releases
 
-Run ```cordova plugin add cordovanetworkmanager@2.3.0```
+Run ```cordova plugin add cordovanetworkmanager@2.4.0```
 
   
 

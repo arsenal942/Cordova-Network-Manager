@@ -37,7 +37,7 @@
 
 			configuration.joinOnce = YES;
 
-			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:^(NSError * _Nullable error) {
+			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:^(nil error) {
 			  if (error != nil) {
 			  	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Error while configuring WiFi " + error];
 			  } else {

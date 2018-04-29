@@ -4,7 +4,7 @@
 
 #####  Latest Stable Release: v2.4.0 (20/03/2018)
 
-#####  Latest Dev Release: v2.4.4 (27/04/2018)
+#####  Latest Dev Release: v2.4.5 (30/04/2018)
 
   
 
@@ -12,7 +12,7 @@ Cordova Network Manager enables Wifi management for both Android and iOS applica
 
 iOS has limited functionality as Apple's WifiManager equivalent is only available as a private API. Any app that used these features would not be allowed on the app store.
 
-Contact @arsenal942 via GitHub or discord at: Nomm#0176
+Contact me via Discord: Nomm#0176
 
   
 

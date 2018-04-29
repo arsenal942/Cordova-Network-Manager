@@ -36,14 +36,8 @@
 						isWEP:(BOOL)false];
 
 			configuration.joinOnce = YES;
-
-			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:^(nil error) {
-			  if (error) {
-			  	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Error while configuring WiFi " + error];
-			  } else {
-				pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssidString];
-			  }
-			}];
+			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:nil];
+			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssidString];
 		} else {
 			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"SSID Not provided"];
 		}

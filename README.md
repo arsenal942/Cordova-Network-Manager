@@ -4,7 +4,7 @@
 
 #####  Latest Stable Release: v2.4.0 (20/03/2018)
 
-#####  Latest Dev Release: v2.4.5 (30/04/2018)
+#####  Latest Dev Release: v2.4.6 (04/05/2018)
 
   
 

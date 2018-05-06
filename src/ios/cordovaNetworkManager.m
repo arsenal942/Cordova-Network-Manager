@@ -37,8 +37,8 @@
 
 			configuration.joinOnce = YES;
 
-			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:^(NSError *error) {
-				if (error != nil) {
+			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:^(NSError * pluginResult) {
+				if (pluginResult != nil) {
 					pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Error connecting to network. Try again."];
 				} else {
 					pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssidString];

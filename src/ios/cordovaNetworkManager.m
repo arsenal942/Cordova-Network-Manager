@@ -36,7 +36,6 @@
 						isWEP:(BOOL)false];
 
 			configuration.joinOnce = YES;
-
 			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:nil];
 			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssidString];
 		} else {

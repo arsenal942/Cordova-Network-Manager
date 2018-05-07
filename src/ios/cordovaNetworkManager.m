@@ -37,15 +37,8 @@
 
 			configuration.joinOnce = YES;
 
-			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:^(NSError * pluginResult) {
-				if (pluginResult != nil) {
-					pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Error connecting to network. Try again."];
-				} else {
-					pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssidString];
-				}
-				[self.commandDelegate sendPluginResult:pluginResult
-                            callbackId:command.callbackId];
-			}];
+			[[NEHotspotConfigurationManager sharedManager] applyConfiguration:configuration completionHandler:nil];
+			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssidString];
 		} else {
 			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"SSID Not provided"];
 		}

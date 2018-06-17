@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordovanetworkmanager"
-    version="2.4.8">
+    version="2.4.9">
   
     <name>cordovaNetworkManager</name>
     <description>Cordova Network Manager for Android and iOS</description>
@@ -48,6 +48,21 @@
         <header-file src="src/ios/cordovaNetworkManager.h" />
         <source-file src="src/ios/cordovaNetworkManager.m" />
         <framework src="SystemConfiguration.framework" />
+        <framework src="NetworkExtension.framework" />
+
+        <!-- Add HotspotConfiguration & NetworkExtension Capabilities  -->
+        <config-file parent="com.apple.developer.networking.HotspotConfiguration" target="*/Entitlements-Debug.plist">
+          <true/>
+        </config-file>
+        <config-file parent="com.apple.developer.networking.HotspotConfiguration" target="*/Entitlements-Release.plist">
+          <true/>
+        </config-file>
+        <config-file parent="com.apple.developer.networking.networkextension" target="*/Entitlements-Debug.plist">
+          <array/>
+        </config-file>
+        <config-file parent="com.apple.developer.networking.networkextension" target="*/Entitlements-Release.plist">
+          <array/>
+        </config-file>
     </platform>
   
 </plugin>

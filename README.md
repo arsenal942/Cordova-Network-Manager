@@ -2,10 +2,10 @@
 
   
 
-#####  Latest Stable Release: v2.4.0 (20/03/2018)
-Run `cordova plugin add cordovanetworkmanager@2.4.0`
+#####  Latest Stable Release: v2.5.0 (19/06/2018)
+Run `cordova plugin add cordovanetworkmanager@2.5.0`
 
-#####  Latest Dev Release: v2.4.10 (18/06/2018)
+#####  Latest Dev Release: v2.5.0 (19/06/2018)
 *Note:* The latest Dev Release may be unstable. It is highly recommend installing from the latest stable release via above.
 
   
@@ -47,14 +47,18 @@ iOS functionality is limited. It is important to understand the following points
 - This will not run in the xCode simulator and requires a physical iOS device to be connected to the machine when building. If you don't attach a physical device, the build will fail.
 
 - Capabilities 'HotspotConfiguration' and 'NetworkExtensions' needed to be enabled/added to the xCode project prior to building.
+ -- This plugin will add the capabilities automatically to your xCode project.
 
 ```javascript
 
 cordovaNetworkManager.iOSConnectNetwork(ssid, ssidPassword, success, fail)
 
 ```
+- Returns a promise that will resolve when the network once the success or error callback fires.
+ -- Prior to resolving the promise, it will check whether or not we are connected to the specified SSID (network)
 - SSID is the network to connect to
 - Password is the password of the given SSID
+
 
 ```javascript
 
@@ -168,7 +172,7 @@ This plugin is in active development. If you are wanting to have the latest and 
 
 ####  Releases
 
-Run ```cordova plugin add cordovanetworkmanager@2.4.0```
+Run ```cordova plugin add cordovanetworkmanager@2.5.0```
 
   
 

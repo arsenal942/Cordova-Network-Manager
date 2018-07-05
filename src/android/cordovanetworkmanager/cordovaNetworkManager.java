@@ -52,7 +52,7 @@ public class cordovaNetworkManager extends CordovaPlugin {
     private static final String LIST_NETWORKS = "listNetworks";
     private static final String START_SCAN = "startScan";
     private static final String GET_SCAN_RESULTS = "getScanResults";
-    private static final String GET_CONNECTED_SSID = "getConnectedSSID";
+    private static final String GET_CONNECTED_SSID = "getCurrentSSID";
     private static final String IS_WIFI_ENABLED = "isWifiEnabled";
     private static final String SET_WIFI_ENABLED = "setWifiEnabled";
     private static final String TAG = "cordovaNetworkManager";
@@ -108,7 +108,7 @@ public class cordovaNetworkManager extends CordovaPlugin {
             return this.disconnect(callbackContext);
         }
         else if(action.equals(GET_CONNECTED_SSID)) {
-            return this.getConnectedSSID(callbackContext);
+            return this.getCurrentSSID(callbackContext);
         }
 		else if(action.equals(GET_CONNECTED_BSSID)){
 		            return this.getConnectedBSSID(callbackContext);
@@ -492,7 +492,7 @@ public class cordovaNetworkManager extends CordovaPlugin {
      *    @param    callbackContext        A Cordova callback context
      *    @return    true if SSID found, false if unknown or empty.
     */
-    private boolean getConnectedSSID(CallbackContext callbackContext){
+    private boolean getCurrentSSID(CallbackContext callbackContext){
         if(!wifiManager.isWifiEnabled()){
             callbackContext.error("Wifi is disabled");
             return false;

@@ -5,7 +5,7 @@
 // Main functions
 - (void)iOSConnectNetwork:(CDVInvokedUrlCommand *)command;
 - (void)iOSDisconnectNetwork:(CDVInvokedUrlCommand *)command;
-- (void)getConnectedSSID:(CDVInvokedUrlCommand*)command;
+- (void)getCurrentSSID:(CDVInvokedUrlCommand*)command;
 - (void)getConnectedBSSID:(CDVInvokedUrlCommand*)command;
 
 // Android Functions

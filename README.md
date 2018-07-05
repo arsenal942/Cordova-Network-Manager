@@ -5,7 +5,7 @@
 #####  Latest Stable Release: v2.5.0 (19/06/2018)
 Run `cordova plugin add cordovanetworkmanager@2.5.0`
 
-#####  Latest Dev Release: v2.5.0 (19/06/2018)
+#####  Latest Dev Release: v2.5.1 (06/07/2018)
 *Note:* The latest Dev Release may be unstable. It is highly recommend installing from the latest stable release via above.
 
   

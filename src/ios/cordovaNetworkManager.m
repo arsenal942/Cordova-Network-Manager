@@ -90,7 +90,7 @@
                                 callbackId:command.callbackId];
 }
 
-- (void)getConnectedSSID:(CDVInvokedUrlCommand*)command {
+- (void)getCurrentSSID:(CDVInvokedUrlCommand*)command {
     CDVPluginResult *pluginResult = nil;
     NSDictionary *r = [self fetchSSIDInfo];
 
@@ -99,10 +99,10 @@
 	NSLog(@"Value of ssid is = %@", ssid);
 
     if (ssid && ![ssid isEqual:[NSNull null]]) {
-		NSLog(@"getConnectedSSID: Success %@");
+		NSLog(@"getCurrentSSID: Success %@");
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssid];
     } else {
-		NSLog(@"getConnectedSSID: Fail %@");
+		NSLog(@"getCurrentSSID: Fail %@");
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Not available"];
     }
 

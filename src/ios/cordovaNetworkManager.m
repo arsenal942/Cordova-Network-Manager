@@ -44,14 +44,10 @@
                 
                 NSString *ssid = [r objectForKey:(id)kCNNetworkInfoKeySSID]; //@"SSID"
                 
-                if ([passwordString length < 8]){
-                    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Password length can't be less than 8"];
-                }else{
-                    if ([ssid isEqualToString:ssidString]){
-                        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssidString];
-                    }else{
-                        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.description];
-                    }
+                if ([ssid isEqualToString:ssidString]){
+                    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssidString];
+                } else {
+                    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.description];
                 }
                 [self.commandDelegate sendPluginResult:pluginResult
                                             callbackId:command.callbackId];

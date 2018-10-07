@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordovanetworkmanager"
-    version="2.5.3">
+    version="2.6.0">
   
     <name>cordovaNetworkManager</name>
     <description>Cordova Network Manager for Android and iOS</description>
@@ -62,6 +62,12 @@
         </config-file>
         <config-file parent="com.apple.developer.networking.networkextension" target="*/Entitlements-Release.plist">
           <array/>
+        </config-file>
+	      <config-file parent="com.apple.developer.networking.wifi-info" target="*/Entitlements-Debug.plist">
+          <true/>
+        </config-file>
+        <config-file parent="com.apple.developer.networking.wifi-info" target="*/Entitlements-Release.plist">
+          <true/>
         </config-file>
     </platform>
   

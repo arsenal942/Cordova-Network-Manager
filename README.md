@@ -1,7 +1,7 @@
 #  Cordova Network Manager
 
-  ##This plugin is now deprecated. 
-  I will be working on maintaining WifiWizard2 (https://github.com/tripflex/WifiWizard2) with @tripflex. I created this plugin to enable iOS users to be able to connect to Wifi networks. @tripflex took the plugin and ran with it and has done an amazing job with an Android rework. I'd rather there be one plugin the community uses rather than two.
+##This plugin is now deprecated. 
+I will be working on maintaining WifiWizard2 (https://github.com/tripflex/WifiWizard2) with @tripflex. I created this plugin to enable iOS users to be able to connect to Wifi networks. @tripflex took the plugin and ran with it and has done an amazing job with an Android rework. I'd rather there be one plugin the community uses rather than two.
 
 #####  Latest Stable Release: v2.6.0 (08/10/2018)
 Run `cordova plugin add cordovanetworkmanager@2.6.0`
